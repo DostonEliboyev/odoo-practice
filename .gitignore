@@ -18,4 +18,4 @@ venv/
 *.pot
 *.mo
 odoo
-
+conf
