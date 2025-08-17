@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_uzum_product_user,access.uzum.product.user,model_uzum_product,base.group_user,1,1,1,1

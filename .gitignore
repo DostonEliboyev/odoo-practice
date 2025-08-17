@@ -1,0 +1,21 @@
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Logs
+*.log
+
+# IDE config
+.idea/
+.vscode/
+
+# Odoo generated
+*.egg-info/
+*.pot
+*.mo
+odoo
+
