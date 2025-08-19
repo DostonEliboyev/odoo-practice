@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "uicecommerce",
+    'name': "UIC ECommerce",
 
     'summary': "Short (1 phrase/line) summary of the module's purpose",
 
@@ -22,9 +22,16 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
+
+        'views/customer.xml',
+        'views/product.xml',
+        'views/category.xml',
+        'views/order.xml',
+        'views/orderline.xml',
+
+        'views/menu.xml'
+    #  ustozga savol one2maney larni joylashish usulini surash kerak
     ],
     # only loaded in demonstration mode
     'demo': [
