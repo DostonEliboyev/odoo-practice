@@ -58,9 +58,9 @@ class EduProductSimple(models.Model):
         # 10-vazifa
         self.env["edu.product.simple"].search([("weight", ">",0.5),("weight", "<",2)])
         # 11-vazifa -
-        self.env["edu.product.simple"].search([("list_price", "=", "Electronics")],limit=5)
+        self.env["edu.product.simple"].search([("list_price", "<", 1000000)],limit=5)
         # 12-vazifa -
-        self.env["edu.product.simple"].search([("category", "=", "Electronics")])
+        self.env["edu.product.simple"].search([("sku", "=", "Electronics")])
         # 13-vazifa -
         self.env["edu.product.simple"].search([("category", "=", "Electronics")])
         # 14-vazifa -
