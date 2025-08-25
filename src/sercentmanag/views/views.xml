@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="sercentmanag.list">
+      <field name="name">sercentmanag list</field>
+      <field name="model">sercentmanag.sercentmanag</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="sercentmanag.action_window">
+      <field name="name">sercentmanag window</field>
+      <field name="res_model">sercentmanag.sercentmanag</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="sercentmanag.action_server">
+      <field name="name">sercentmanag server</field>
+      <field name="model_id" ref="model_sercentmanag_sercentmanag"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="sercentmanag" id="sercentmanag.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="sercentmanag.menu_1" parent="sercentmanag.menu_root"/>
+    <menuitem name="Menu 2" id="sercentmanag.menu_2" parent="sercentmanag.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="sercentmanag.menu_1_list" parent="sercentmanag.menu_1"
+              action="sercentmanag.action_window"/>
+    <menuitem name="Server to list" id="sercentmanag" parent="sercentmanag.menu_2"
+              action="sercentmanag.action_server"/>
+-->
+  </data>
+</odoo>

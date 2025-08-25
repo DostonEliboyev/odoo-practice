@@ -6,10 +6,12 @@ class Category(models.Model):
     _description = 'uicecommerce.uicecommerce'
 
     name = fields.Char(string='Name')
+    product_count = fields.One2many("uicecommerce.product",string='Products')
     productsCount = fields.Integer(string='Products Count',compute='_compute_products_count')
     #  Categroyiani qanday sanashini bilamdim
-    @api.model
+
+    @api.depends('product_count')
     def _compute_products_count(self):
         for product in self:
             print('---', product.productsCount)
-            product.productsCount = product.productsCount + 1
+            # product.productsCount = product
