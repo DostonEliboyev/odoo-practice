@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_service_state_list" model="ir.ui.view">
+    <field name="name">service.state.list</field>
+    <field name="model">service.state</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="is_active"/>
+        <field name="country_id"/>
+        <field name="district_count"/>
+        <field name="center_count"/>
+        <field name="technician_count"/>
+        <field name="total_revenue"/>
+        <field name="avg_rating"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_service_state_form" model="ir.ui.view">
+    <field name="name">service.state.form</field>
+    <field name="model">service.state</field>
+    <field name="arch" type="xml">
+      <form string="State">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="is_active"/>
+              <field name="country_id"/>
+            </group>
+            <group>
+              <field name="district_count" readonly="1"/>
+              <field name="center_count" readonly="1"/>
+              <field name="technician_count" readonly="1"/>
+              <field name="total_revenue" readonly="1"/>
+              <field name="avg_rating" readonly="1"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Centers">
+<!--              <field name="center_ids" widget="many2many_tags"/>-->
+            </page>
+            <page string="Active Orders">
+<!--              <field name="active_order_count" widget="many2many_tags"/>-->
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

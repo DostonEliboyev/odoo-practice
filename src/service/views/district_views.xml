@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_service_district_list" model="ir.ui.view">
+    <field name="name">service.district.list</field>
+    <field name="model">service.district</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="is_active"/>
+        <field name="country_id"/>
+        <field name="state_id"/>
+        <field name="center_ids"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_service_district_form" model="ir.ui.view">
+    <field name="name">service.district.form</field>
+    <field name="model">service.district</field>
+    <field name="arch" type="xml">
+      <form string="District">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="is_active"/>
+            </group>
+            <group>
+              <field name="country_id"/>
+              <field name="state_id"/>
+              <field name="center_ids"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_service_technician_list" model="ir.ui.view">
+    <field name="name">service.technician.list</field>
+    <field name="model">service.technician</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="is_active"/>
+        <field name="center_id"/>
+        <field name="phone"/>
+        <field name="email"/>
+        <field name="specialty"/>
+        <field name="capacity_per_day"/>
+        <field name="is_busy"/>
+        <field name="active_order_count"/>
+        <field name="today_order_count"/>
+        <field name="avg_rating"/>
+        <field name="total_revenue"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_service_technician_form" model="ir.ui.view">
+    <field name="name">service.technician.form</field>
+    <field name="model">service.technician</field>
+    <field name="arch" type="xml">
+      <form string="Technician">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="is_active"/>
+              <field name="center_id"/>
+              <field name="specialty"/>
+              <field name="hire_date"/>
+            </group>
+            <group>
+              <field name="phone"/>
+              <field name="email"/>
+              <field name="capacity_per_day"/>
+              <field name="utilization_rate" readonly="1"/>
+              <field name="is_busy"/>
+            </group>
+          </group>
+
+          <notebook>
+            <page string="Orders">
+              <group>
+<!--                <field name="order_ids" widget="many2many_tags"/>-->
+<!--                <field name="active_order_ids" widget="many2many_tags"/>-->
+                <field name="active_order_count" readonly="1"/>
+<!--                <field name="today_order_ids" widget="many2many_tags"/>-->
+                <field name="today_order_count" readonly="1"/>
+<!--                <field name="done_order_ids" widget="many2many_tags"/>-->
+                <field name="done_order_count" readonly="1"/>
+              </group>
+            </page>
+            <page string="Performance">
+              <group>
+                <field name="avg_rating" readonly="1"/>
+                <field name="total_revenue" readonly="1"/>
+                <field name="last_order_date" readonly="1"/>
+              </group>
+            </page>
+            <page string="Notes">
+              <field name="description"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

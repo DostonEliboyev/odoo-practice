@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_service_country_list" model="ir.ui.view">
+    <field name="name">service.country.list</field>
+    <field name="model">service.country</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="phone_code"/>
+        <field name="is_active"/>
+        <field name="state_count"/>
+        <field name="center_count"/>
+        <field name="active_order_count"/>
+        <field name="done_order_count"/>
+        <field name="avg_rating"/>
+        <field name="total_revenue"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_service_country_form" model="ir.ui.view">
+    <field name="name">service.country.form</field>
+    <field name="model">service.country</field>
+    <field name="arch" type="xml">
+      <form string="Country">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="phone_code"/>
+              <field name="is_active"/>
+              <field name="state_ids" widget="many2many_tags"/>
+              <field name="district_ids" widget="many2many_tags"/>
+            </group>
+            <group>
+              <field name="value"/>
+              <field name="technician_count" readonly="1"/>
+              <field name="state_count" readonly="1"/>
+              <field name="center_count" readonly="1"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Technicians">
+              <field name="technicians" widget="many2many_tags"/>
+            </page>
+            <page string="Centers">
+              <field name="center_ids" widget="many2many_tags"/>
+            </page>
+            <page string="Stats">
+              <group>
+                <field name="active_order_count" readonly="1"/>
+                <field name="done_order_ids" readonly="1"/>
+                <field name="done_order_count" readonly="1"/>
+                <field name="total_revenue" readonly="1"/>
+                <field name="avg_rating" readonly="1"/>
+                <field name="last_order_date" readonly="1"/>
+              </group>
+            </page>
+            <page string="Notes">
+              <field name="description"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

@@ -10,10 +10,11 @@ class Country(models.Model):
     code = fields.Integer(string="Country Code", )
     phone_code = fields.Char(string="Phone Code", )
     value = fields.Integer()
-    value2 = fields.Float(compute="_value_pc", store=True)
     is_active =fields.Boolean(string="Is Active")
-    state_ids = fields.Many2many('service.state', string="States")
+    state_ids = fields.One2many('service.state', 'country_id',"States",)
+    district_ids = fields.One2many('service.district',"country_id","Districts")
     center_ids = fields.Many2many('service.center', string="Centers")
+    technicians = fields.Many2many("service.technician", string="Technicians")
     technician_count = fields.Integer()
     state_count = fields.Integer()
     center_count = fields.Integer()
@@ -24,8 +25,6 @@ class Country(models.Model):
     avg_rating = fields.Float()
     last_order_date = fields.Date()
 
-    @api.depends('value')
-    def _value_pc(self):
-        for record in self:
-            record.value2 = float(record.value) / 100
 
+    def _compute_technicians(self):
+        tech_count = self.env['service.technician'].search_count([])

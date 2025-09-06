@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "sercentmanag",
+    'name': "Service",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Service Center Management",
 
-    'description': """
-Long description of module's purpose
-    """,
+    'description': """Service Center Management""",
 
     'author': "My Company",
     'website': "https://www.yourcompany.com",
@@ -23,8 +21,20 @@ Long description of module's purpose
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
+        # Views
+        'views/menu_actions.xml',
+        'views/center_views.xml',
+        'views/country_views.xml',
+        'views/state_views.xml',
+        'views/district_views.xml',
+        'views/customer_views.xml',
+        'views/order_views.xml',
+        'views/order_line_views.xml',
+        'views/order_rating_views.xml',
+        'views/part_views.xml',
+        'views/payment_views.xml',
+        'views/technician_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

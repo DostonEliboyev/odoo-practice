@@ -7,8 +7,8 @@ class OrderLine(models.Model):
     _description = 'Order Line'
 
     name = fields.Char(string="Order Line Name")
-    order_id = fields.Many2one('service.order', string="Order")
-    part_id =fields.Many2one('service.part', string="Part")
+    order_id = fields.Char( string="Order")
+    part_id =fields.Char(string="Part")
     description = fields.Char(string="Description")
     note = fields.Text(string="Notes")
 

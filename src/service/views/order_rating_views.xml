@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_service_order_rating_list" model="ir.ui.view">
+    <field name="name">service.order.rating.list</field>
+    <field name="model">service.order.rating</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="center_id"/>
+        <field name="order_id"/>
+        <field name="customer_id"/>
+        <field name="technician_id"/>
+        <field name="score"/>
+        <field name="rating_date"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_service_order_rating_form" model="ir.ui.view">
+    <field name="name">service.order.rating.form</field>
+    <field name="model">service.order.rating</field>
+    <field name="arch" type="xml">
+      <form string="Order Rating">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="score"/>
+            <field name="rating_date"/>
+          </group>
+          <group>
+            <field name="center_id"/>
+            <field name="order_id"/>
+            <field name="customer_id"/>
+            <field name="technician_id"/>
+          </group>
+          <group>
+            <field name="comment"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>
