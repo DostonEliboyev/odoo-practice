@@ -1,0 +1,98 @@
+<odoo>
+  <!-- list (List) view -->
+  <record id="view_uzum_product_list" model="ir.ui.view">
+    <field name="name">uzum.product.list</field>
+    <field name="model">uzum.product</field>
+    <field name="arch" type="xml">
+      <list string="Uzum Products" default_order="name asc">
+        <field name="name"/>
+        <field name="category"/>
+        <field name="price"/>
+        <field name="price_discount"/>
+        <field name="warehouseCount"/>
+        <field name="salesWeekCount"/>
+        <field name="like"/>
+        <field name="dislike"/>
+        <field name="comments"/>
+      </list>
+    </field>
+  </record>
+
+  <!-- FORM view -->
+  <record id="view_uzum_product_form" model="ir.ui.view">
+    <field name="name">uzum.product.form</field>
+    <field name="model">uzum.product</field>
+    <field name="arch" type="xml">
+      <form string="Uzum Product">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="category"/>
+              <field name="description"/>
+            </group>
+            <group>
+              <field name="price"/>
+              <field name="price_discount"/>
+              <field name="warehouseCount"/>
+              <field name="salesWeekCount"/>
+            </group>
+          </group>
+          <group string="Engagement">
+            <group>
+              <field name="like"/>
+              <field name="dislike"/>
+              <field name="comments"/>
+              <field name="images"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- SEARCH view -->
+  <record id="view_uzum_product_search" model="ir.ui.view">
+    <field name="name">uzum.product.search</field>
+    <field name="model">uzum.product</field>
+    <field name="arch" type="xml">
+      <search string="Search Products">
+        <field name="name"/>
+        <field name="category"/>
+        <filter name="with_discount" string="With Discount"
+                domain="[('price_discount','>',0)]"/>
+        <filter name="in_stock" string="In Stock"
+                domain="[('warehouseCount','>',0)]"/>
+        <group expand="0" string="Group By">
+          <filter name="grp_category" string="Category" context="{'group_by':'category'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <!-- ACTION -->
+  <record id="action_uzum_product" model="ir.actions.act_window">
+    <field name="name">Uzum Products</field>
+    <field name="res_model">uzum.product</field>
+    <field name="view_mode">list,form</field>
+    <field name="search_view_id" ref="view_uzum_product_search"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create your first Uzum product
+      </p>
+    </field>
+  </record>
+
+  <!-- MENUS (Internal Users only) -->
+  <menuitem id="menu_uzum_root"
+            name="Uzum"
+            sequence="50"
+            groups="base.group_user"/>
+
+  <menuitem id="menu_uzum_products"
+            name="Products"
+            parent="menu_uzum_root"
+            action="action_uzum_product"
+            sequence="10"
+            groups="base.group_user"/>
+</odoo>

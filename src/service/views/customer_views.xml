@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_service_customer_list" model="ir.ui.view">
+    <field name="name">service.customer.list</field>
+    <field name="model">service.customer</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="phone"/>
+        <field name="email"/>
+        <field name="order_count"/>
+        <field name="active_order_count"/>
+        <field name="done_order_count"/>
+        <field name="total_payment"/>
+        <field name="balance_due"/>
+        <field name="avg_rating"/>
+        <field name="last_order_date"/>
+        <field name="last_payment_date"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_service_customer_form" model="ir.ui.view">
+    <field name="name">service.customer.form</field>
+    <field name="model">service.customer</field>
+    <field name="arch" type="xml">
+      <form string="Customer">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="phone"/>
+              <field name="email"/>
+              <field name="center_ids"/>
+            </group>
+            <group>
+              <field name="order_count" readonly="1"/>
+              <field name="active_order_ids" readonly="1"/>
+              <field name="active_order_count" readonly="1"/>
+              <field name="done_order_count" readonly="1"/>
+              <field name="total_payment" readonly="1"/>
+              <field name="balance_due" readonly="1"/>
+              <field name="avg_rating" readonly="1"/>
+            </group>
+          </group>
+          <group>
+            <field name="order_ids"/>
+            <field name="payment_ids"/>
+            <field name="rating_ids"/>
+          </group>
+          <group>
+            <field name="last_order_date" readonly="1"/>
+            <field name="last_payment_date" readonly="1"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

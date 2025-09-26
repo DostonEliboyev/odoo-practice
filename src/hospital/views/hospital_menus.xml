@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Root menu -->
+    <menuitem id="menu_hospital_root" name="Hospital" sequence="10"/>
+
+    <!-- Submenus -->
+    <menuitem id="menu_hospital_patient" name="Patients" parent="menu_hospital_root" sequence="10" action="action_hospital_patient"/>
+    <menuitem id="menu_hospital_doctor" name="Doctors" parent="menu_hospital_root" sequence="20" action="action_hospital_doctor"/>
+    <menuitem id="menu_hospital_appointment" name="Appointments" parent="menu_hospital_root" sequence="30" action="action_hospital_appointment"/>
+    <menuitem id="menu_hospital_prescription" name="Prescriptions" parent="menu_hospital_root" sequence="40" action="action_hospital_prescription"/>
+    <menuitem id="menu_hospital_medicine" name="Medicines" parent="menu_hospital_root" sequence="50" action="action_hospital_medicine"/>
+</odoo>

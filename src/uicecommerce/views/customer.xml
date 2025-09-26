@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+      <record id="view_uicecommerce_customer_list" model="ir.ui.view">
+        <field name="name">uicecommerce.customer.list</field>
+        <field name="model">uicecommerce.customer</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="firstname"/>
+                <field name="lastname"/>
+                <field name="fullname"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="city"/>
+                <field name="country"/>
+                <field name="buyproduct"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_uicecommerce_customer_form" model="ir.ui.view">
+        <field name="name">uicecommerce.customer.form</field>
+        <field name="model">uicecommerce.customer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Identity">
+                        <field name="name"/>
+                        <field name="firstname"/>
+                        <field name="lastname"/>
+                        <field name="fullname"/>
+                        <field name="shortname"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="birthday"/>
+                        <field name="birthday2"/>
+                    </group>
+                    <group string="Address">
+                        <field name="country"/>
+                        <field name="state"/>
+                        <field name="city"/>
+                        <field name="street"/>
+                        <field name="fulladdress"/>
+
+                    </group>
+                    <group string="Customer Orders">
+                        <field name="buyproduct"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_uicecommerce_customer" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">uicecommerce.customer</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+
+
+  </data>
+</odoo>

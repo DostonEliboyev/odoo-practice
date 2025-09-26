@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- =========================
+         MENU ROOT
+    ========================== -->
+    <menuitem id="menu_library_root"
+              name="Library"
+              sequence="50"
+              web_icon="base,static/description/icon.png"/>
+
+    <!-- =========================
+         AUTHOR VIEWS & ACTION
+    ========================== -->
+    <record id="view_library_author_tree" model="ir.ui.view">
+        <field name="name">library.author.list</field>
+        <field name="model">library.author</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_library_author_form" model="ir.ui.view">
+        <field name="name">library.author.form</field>
+        <field name="model">library.author</field>
+        <field name="arch" type="xml">
+            <form string="Author">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Books">
+                            <field name="book_ids" context="{'default_author_id': active_id}">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="author_id" invisible="1"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="author_id" readonly="1"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_library_author_search" model="ir.ui.view">
+        <field name="name">library.author.search</field>
+        <field name="model">library.author</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="name_set" string="With Name" domain="[('name','!=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="grp_name" string="Name" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_library_authors" model="ir.actions.act_window">
+        <field name="name">Authors</field>
+        <field name="res_model">library.author</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_library_author_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first author
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_library_authors"
+              name="Authors"
+              parent="menu_library_root"
+              sequence="10"
+              action="action_library_authors"/>
+
+    <!-- =========================
+         BOOK VIEWS & ACTION
+    ========================== -->
+    <record id="view_library_book_tree" model="ir.ui.view">
+        <field name="name">library.book.list</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="author_id"/>
+                <field name="student_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_library_book_form" model="ir.ui.view">
+        <field name="name">library.book.form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form string="Book">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="author_id" options="{'no_create_edit': True}"/>
+                    </group>
+                    <group>
+                        <field name="student_ids" widget="many2many_tags" placeholder="Borrowed by students"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_library_book_search" model="ir.ui.view">
+        <field name="name">library.book.search</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="author_id"/>
+                <filter name="has_author" string="With Author" domain="[('author_id','!=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="grp_author" string="Author" context="{'group_by':'author_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_library_books" model="ir.actions.act_window">
+        <field name="name">Books</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_library_book_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first book
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_library_books"
+              name="Books"
+              parent="menu_library_root"
+              sequence="20"
+              action="action_library_books"/>
+
+    <!-- =========================
+         STUDENT VIEWS & ACTION
+    ========================== -->
+    <record id="view_library_student_tree" model="ir.ui.view">
+        <field name="name">library.student.list</field>
+        <field name="model">library.student</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="borrowed_book_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_library_student_form" model="ir.ui.view">
+        <field name="name">library.student.form</field>
+        <field name="model">library.student</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="borrowed_book_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_library_student_search" model="ir.ui.view">
+        <field name="name">library.student.search</field>
+        <field name="model">library.student</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="with_borrows" string="With Borrowed Books" domain="[('borrowed_book_ids','!=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="grp_name" string="Name" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_library_students" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">library.student</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_library_student_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first student
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_library_students"
+              name="Students"
+              parent="menu_library_root"
+              sequence="30"
+              action="action_library_students"/>
+</odoo>

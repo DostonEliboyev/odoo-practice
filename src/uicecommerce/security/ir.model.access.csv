@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_uicecommerce_category_user,uicecommerce.category user,model_uicecommerce_category,base.group_user,1,1,1,1
+access_uicecommerce_customer_user,uicecommerce.customer user,model_uicecommerce_customer,base.group_user,1,1,1,1
+access_uicecommerce_orderline_user,uicecommerce.orderline user,model_uicecommerce_orderline,base.group_user,1,1,1,1
+access_uicecommerce_order_user,uicecommerce.order user,model_uicecommerce_order,base.group_user,1,1,1,1
+access_uicecommerce_product_user,uicecommerce.product user,model_uicecommerce_product,base.group_user,1,1,1,1

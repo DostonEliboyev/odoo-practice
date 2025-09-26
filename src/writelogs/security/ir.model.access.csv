@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_writelogs_product_user,access.writelogs.product.user,model_writelogs_product,base.group_user,1,1,1,1
+access_writelogs_logs_user,access.writelogs.logs.user,model_writelogs_logs,base.group_user,1,1,1,1

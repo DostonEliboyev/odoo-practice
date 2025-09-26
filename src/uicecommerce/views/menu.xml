@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+      <menuitem id="menu_uicecommerce_root" name="UICEcommerce" sequence="10"/>
+
+      <menuitem id="menu_uicecommerce_category"
+              name="Categories"
+              parent="menu_uicecommerce_root"
+              action="action_uicecommerce_category"
+              sequence="10"/>
+    <menuitem id="menu_uicecommerce_product"
+              name="Products"
+              parent="menu_uicecommerce_root"
+              action="action_uicecommerce_product"
+              sequence="50"/>
+      <menuitem id="menu_uicecommerce_customer"
+              name="Customers"
+              parent="menu_uicecommerce_root"
+              action="action_uicecommerce_customer"
+              sequence="20"/>
+    <menuitem id="menu_uicecommerce_order"
+              name="Orders"
+              parent="menu_uicecommerce_root"
+              action="action_uicecommerce_order"
+              sequence="40"/>
+      <menuitem id="menu_uicecommerce_orderline"
+              name="Order Lines"
+              parent="menu_uicecommerce_root"
+              action="action_uicecommerce_orderline"
+              sequence="30"/>
+
+
+
+
+
+</odoo>
